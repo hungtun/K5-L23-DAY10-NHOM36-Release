@@ -2,3 +2,8 @@
 {"event": "train", "release_id": "lab250_758cc5ff59fa", "run_id": "R-021"}
 {"event": "decision", "release_id": "lab250_758cc5ff59fa", "decision": "HOLD"}
 {"event": "release", "release_id": "lab250_758cc5ff59fa_v2", "parent": "lab250_758cc5ff59fa"}
+{"event": "inject", "release_id": "lab250_accb9ddc188f", "seed": 36007, "detail": "r36007"}
+{"event": "train", "release_id": "lab250_accb9ddc188f", "run_id": "R-021"}
+{"event": "decision", "release_id": "lab250_accb9ddc188f", "decision": "RELEASE"}
+{"event": "release", "release_id": "lab250_accb9ddc188f_v2", "parent": "lab250_accb9ddc188f"}
+{"event": "decision", "release_id": "lab250_accb9ddc188f", "decision": "HOLD"}
