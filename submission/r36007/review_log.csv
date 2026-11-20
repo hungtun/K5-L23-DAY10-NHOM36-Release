@@ -1,0 +1,17 @@
+image,type,verdict,note
+000000000139,category_swap,confirmed,Ảnh là bốn ghế bọc nệm trong phòng ăn; detection ghi chair đúng, panoptic ghi bench sai.
+000000000632,instance_merge,confirmed,Trên giường có thể thấy nhiều quyển sách/chi tiết gần nhau; một segment book che phủ hai box book riêng lẻ nên hai instance bị gộp.
+000000000872,missing_box,confirmed,Ảnh bóng chày có hai tay đánh bóng và một vài người trên sân nhưng detection không đủ box tương ứng với người trong segment panoptic.
+000000001818,missing_box,confirmed,Ảnh hai con ngựa vằn; panoptic có một segment zebra lớn nhưng detection không có box zebra tương ứng.
+000000004134,instance_merge,confirmed,Ảnh hai người trong tiệc có hai box person riêng nhưng chỉ có một segment person lớn gồm cả hai người.
+000000007574,missing_box,confirmed,Ảnh bên trong bếp có tủ lạnh rõ ràng nhưng không có box detection refrigerator tương ứng segment.
+000000008690,instance_merge,confirmed,Ảnh có nhiều người đứng và ngồi; một segment person duy nhất phủ nhiều box person riêng lẻ nên instance bị gộp.
+000000010092,category_swap,confirmed,Ảnh là một bàn đầu giường và con chuột ở cạnh giường; detection ghi bed đúng nhưng panoptic ghi mouse sai.
+000000012639,bbox_drift,confirmed,Box detection person bao cột phần trên; segment person cùng vật thể kéo dài xuống thấp hơn nên box bị lệch theo trục dọc.
+000000012748,missing_box,confirmed,Người đàn ông và đứa trẻ đang vuốt voi trong ảnh; panoptic có segment person nhưng detection thiếu box person tương ứng.
+000000014473,missing_box,confirmed,Ảnh mô hình xe lửa có đoàn tàu rõ ràng nhưng panoptic có segment train và không có box train detection tương ứng.
+000000016228,instance_merge,confirmed,Ở tuyến phố có nhiều người nhỏ; hai box person nằm trong cùng một segment person lớn nên hai instance bị gộp.
+000000017436,bbox_drift,confirmed,Ảnh có ghế công viên và người ngồi; box bench lệch so với segment bench nhưng phần lớn pixel vẫn nằm trong box.
+000000018491,category_swap,confirmed,Ảnh cho thấy ghế công viên dài; detection ghi chair đúng nhưng panoptic ghi bench sai.
+000000018770,bbox_drift,confirmed,Ảnh cầu thủ và người giám sát; box tie lệch rõ so với nơ cài trên ngực và không khớp segment tie.
+000000023126,category_swap,confirmed,Ảnh người cưỡi ngựa; panoptic ghi horse đúng, detection ghi sheep sai về lớp.

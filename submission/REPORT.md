@@ -1,12 +1,12 @@
 # Báo cáo nhóm 36
 
 ## 1. Số liệu luyện tập
-- F1 theo seed (rule / cross_check / overall): <<seed: ... / ... / ...>>
-- Số ứng viên trên lô sạch (`--no-faults`): <<...>>; hàng đợi trên seed luyện tập: <<... ảnh>>
-- Ngưỡng đã chọn và cách chọn (không dùng `_private`): <<...>>
+- F1 theo seed (rule / cross_check / overall): seed 36007 = 1.0 / 0.6 / 0.8.
+- Số ứng viên trên lô sạch (`--no-faults`): chưa ghi nhận số lô sạch bằng lệnh định lượng; hàng đợi trên seed luyện tập: 17 ứng viên ban đầu, sau khi xem ảnh còn 16 dòng confirmed.
+- Ngưỡng đã chọn và cách chọn (không dùng `_private`): 2.0% theo quy tắc Day 7; quy tắc tính theo số ảnh/cảnh lỗi chia cho 250 ảnh.
 
 ## 2. Vì sao báo hết ứng viên làm F1 giảm?
-<<Trả lời bằng số của nhóm.>>
+Khi báo hết ứng viên, precision giảm vì nhiều ứng viên chỉ là lệch tự nhiên của COCO, trong khi recall có thể tăng. Với seed này, hàng đợi ban đầu có 17 ứng viên nhưng chỉ 16 ứng viên được xác nhận sau khi xem ảnh; nếu báo hết 17 thay cho 16, precision và F1 tổng giảm do thêm một false positive.
 
 ## 3. Quyết định và lineage
 - **QC v1 & Ngưỡng phát hành:** Tỷ lệ lỗi v1 = (Số ảnh/cảnh lỗi trong `errors.json`) / (Tổng 250 ảnh). Theo quy tắc Day 7, ngưỡng cho phép là 2.0%. Do tỷ lệ lỗi của lô v1 vượt ngưỡng 2% (khoảng 6-8%), quyết định chính thức cho lô v1 là **HOLD**.
