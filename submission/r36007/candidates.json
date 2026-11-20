@@ -1,0 +1,253 @@
+{
+  "candidates": [
+    {
+      "image": "000000000139",
+      "type": "class_swap_or_category_swap",
+      "det_class": "chair",
+      "pan_class": "bench",
+      "det_bbox": [
+        359.0,
+        218.1,
+        415.0,
+        320.9
+      ],
+      "pan_bbox": [
+        359.0,
+        218.0,
+        415.0,
+        321.0
+      ],
+      "iou": 0.998,
+      "mask_in_box": 1.0,
+      "area": 2251
+    },
+    {
+      "image": "000000000872",
+      "type": "missing_box",
+      "class": "person",
+      "pan_bbox": [
+        164.0,
+        126.0,
+        429.0,
+        607.0
+      ],
+      "area": 47692
+    },
+    {
+      "image": "000000001818",
+      "type": "missing_box",
+      "class": "zebra",
+      "pan_bbox": [
+        0.0,
+        1.0,
+        638.0,
+        425.0
+      ],
+      "area": 120106
+    },
+    {
+      "image": "000000004134",
+      "type": "bbox_drift",
+      "class": "person",
+      "det_bbox": [
+        257.8,
+        186.1,
+        310.7,
+        269.8
+      ],
+      "pan_bbox": [
+        275.0,
+        186.0,
+        311.0,
+        270.0
+      ],
+      "iou": 0.67,
+      "mask_in_box": 1.0,
+      "area": 1261
+    },
+    {
+      "image": "000000007574",
+      "type": "missing_box",
+      "class": "refrigerator",
+      "pan_bbox": [
+        1.0,
+        169.0,
+        103.0,
+        446.0
+      ],
+      "area": 22219
+    },
+    {
+      "image": "000000008690",
+      "type": "instance_merge",
+      "class": "person",
+      "box1": [
+        136.7,
+        18.6,
+        351.5,
+        396.8
+      ],
+      "box2": [
+        379.7,
+        390.3,
+        637.5,
+        474.4
+      ],
+      "pan_bbox": [
+        137.0,
+        19.0,
+        637.0,
+        474.0
+      ],
+      "union_iou": 0.997,
+      "area": 48894
+    },
+    {
+      "image": "000000010092",
+      "type": "class_swap_or_category_swap",
+      "det_class": "bed",
+      "pan_class": "mouse",
+      "det_bbox": [
+        93.6,
+        187.2,
+        439.4,
+        376.3
+      ],
+      "pan_bbox": [
+        94.0,
+        187.0,
+        439.0,
+        376.0
+      ],
+      "iou": 0.995,
+      "mask_in_box": 1.0,
+      "area": 55313
+    },
+    {
+      "image": "000000012639",
+      "type": "bbox_drift",
+      "class": "person",
+      "det_bbox": [
+        407.2,
+        166.5,
+        471.0,
+        354.7
+      ],
+      "pan_bbox": [
+        411.0,
+        125.0,
+        468.0,
+        293.0
+      ],
+      "iou": 0.502,
+      "mask_in_box": 0.837,
+      "area": 6080
+    },
+    {
+      "image": "000000012748",
+      "type": "missing_box",
+      "class": "person",
+      "pan_bbox": [
+        221.0,
+        139.0,
+        480.0,
+        632.0
+      ],
+      "area": 56935
+    },
+    {
+      "image": "000000014473",
+      "type": "missing_box",
+      "class": "train",
+      "pan_bbox": [
+        0.0,
+        155.0,
+        593.0,
+        308.0
+      ],
+      "area": 43223
+    },
+    {
+      "image": "000000017436",
+      "type": "bbox_drift",
+      "class": "bench",
+      "det_bbox": [
+        2.0,
+        507.1,
+        175.9,
+        614.6
+      ],
+      "pan_bbox": [
+        22.0,
+        534.0,
+        178.0,
+        630.0
+      ],
+      "iou": 0.583,
+      "mask_in_box": 0.971,
+      "area": 5919
+    },
+    {
+      "image": "000000018491",
+      "type": "class_swap_or_category_swap",
+      "det_class": "chair",
+      "pan_class": "bench",
+      "det_bbox": [
+        0.0,
+        141.1,
+        223.9,
+        153.0
+      ],
+      "pan_bbox": [
+        0.0,
+        141.0,
+        224.0,
+        153.0
+      ],
+      "iou": 0.991,
+      "mask_in_box": 1.0,
+      "area": 851
+    },
+    {
+      "image": "000000018770",
+      "type": "bbox_drift",
+      "class": "tie",
+      "det_bbox": [
+        253.6,
+        218.2,
+        346.0,
+        419.5
+      ],
+      "pan_bbox": [
+        269.0,
+        176.0,
+        361.0,
+        377.0
+      ],
+      "iou": 0.492,
+      "mask_in_box": 0.764,
+      "area": 5497
+    },
+    {
+      "image": "000000023126",
+      "type": "class_swap_or_category_swap",
+      "det_class": "sheep",
+      "pan_class": "horse",
+      "det_bbox": [
+        457.1,
+        304.5,
+        507.8,
+        412.9
+      ],
+      "pan_bbox": [
+        458.0,
+        306.0,
+        508.0,
+        412.0
+      ],
+      "iou": 0.957,
+      "mask_in_box": 1.0,
+      "area": 908
+    }
+  ]
+}

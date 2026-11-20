@@ -1,0 +1,15 @@
+image,type,verdict,note
+000000000139,category_swap,confirmed,ghế tựa đơn quanh bàn ăn phòng khách nhưng panoptic gán nhầm thành bench
+000000000872,missing_box,confirmed,ảnh trận bóng chày có hai người nhưng detection chỉ gán một box bỏ sót người còn lại
+000000001818,missing_box,confirmed,ảnh đàn ngựa vằn có hai con lớn nhưng detection chỉ gán một box bỏ sót con bên trái
+000000004134,bbox_drift,confirmed,box detection người bị lệch tâm và tràn rộng ra ngoài viền cơ thể thực tế
+000000007574,missing_box,confirmed,chiếc tủ lạnh kích thước lớn trong phòng bếp nhưng detection bỏ sót không có box
+000000008690,instance_merge,confirmed,hai người đứng cạnh nhau bị mask panoptic gộp chung thành một đối tượng duy nhất
+000000010092,category_swap,confirmed,chiếc giường ngủ đôi trong phòng ngủ nhưng panoptic gán nhầm thành nhãn con chuột mouse
+000000012639,bbox_drift,confirmed,hộp bao detection của người bị xê dịch lệch đáng kể so với vị trí đứng thật
+000000012748,missing_box,confirmed,người phụ nữ đứng ở góc chụp rõ nét nhưng không được gán box detection
+000000014473,missing_box,confirmed,đoàn tàu hỏa lớn chiếm diện tích khung hình nhưng detection bỏ sót không gán box
+000000017436,bbox_drift,confirmed,box detection của ghế dài công viên bị lệch biên ra ngoài vật thể thực tế
+000000018491,class_swap,confirmed,ghế dài băng ngồi sân bóng chày nhưng detection gán nhầm thành ghế tựa đơn chair
+000000018770,bbox_drift,confirmed,hộp bao cà vạt của người đàn ông bị lệch hẳn sang một bên ngực áo
+000000023126,class_swap,confirmed,con ngựa lớn đứng gần hàng rào nhưng detection gán nhầm thành con cừu sheep
