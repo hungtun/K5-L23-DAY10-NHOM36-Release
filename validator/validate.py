@@ -308,6 +308,63 @@ def find_candidates(
             counts = collections.Counter(zip(sub[0::3], sub[1::3], sub[2::3]))
             box_seg_pixels.append(counts)
 
+        # Kiểm tra gộp instance trước khi ghép 1-1: một box có thể khớp rất tốt
+        # với segment bị gộp và khiến segment đó bị loại khỏi các bước sau.
+        used_s: set[int] = set()
+        for s_i, s in enumerate(segs):
+            if s["area"] < 350:
+                continue
+            covered_boxes: list[tuple[int, dict[str, Any], int]] = []
+            for b_i, b in enumerate(boxes):
+                if b["cls"] != s["cls"]:
+                    continue
+                count = box_seg_pixels[b_i].get(s["rgb"], 0)
+                if count / s["area"] >= 0.04 and b["area"] > 0 and count / b["area"] >= 0.10:
+                    covered_boxes.append((b_i, b, count))
+            found_merge = False
+            for i, (_, b1, count1) in enumerate(covered_boxes):
+                if found_merge:
+                    break
+                for _, b2, count2 in covered_boxes[i + 1 :]:
+                    # Box chồng hoặc lồng nhau nhiều thường chỉ là lệch tự nhiên,
+                    # không đủ cơ sở coi là hai vật trong cùng segment.
+                    overlap_w = max(0.0, min(b1["bbox"][2], b2["bbox"][2]) - max(b1["bbox"][0], b2["bbox"][0]))
+                    overlap_h = max(0.0, min(b1["bbox"][3], b2["bbox"][3]) - max(b1["bbox"][1], b2["bbox"][1]))
+                    if overlap_w * overlap_h / min(b1["area"], b2["area"]) > 0.45:
+                        continue
+                    u_iou = bbox_iou(union_bbox(b1["bbox"], b2["bbox"]), s["bbox"])
+                    if u_iou < 0.75 or (count1 + count2) / s["area"] < 0.70:
+                        continue
+                    # Pixel trong phần giao hai box chỉ được tính một lần.
+                    ix1 = max(0, min(width, math.floor(max(b1["bbox"][0], b2["bbox"][0]))))
+                    iy1 = max(0, min(height, math.floor(max(b1["bbox"][1], b2["bbox"][1]))))
+                    ix2 = max(0, min(width, math.ceil(min(b1["bbox"][2], b2["bbox"][2]))))
+                    iy2 = max(0, min(height, math.ceil(min(b1["bbox"][3], b2["bbox"][3]))))
+                    overlap = 0
+                    if ix1 < ix2 and iy1 < iy2:
+                        for y in range(iy1, iy2):
+                            row = pixels[y * stride + ix1 * 3 : y * stride + ix2 * 3]
+                            overlap += sum(rgb == s["rgb"] for rgb in zip(row[0::3], row[1::3], row[2::3]))
+                    coverage = (count1 + count2 - overlap) / s["area"]
+                    if coverage < 0.70:
+                        continue
+                    candidates.append(
+                        {
+                            "image": stem,
+                            "type": "instance_merge",
+                            "class": s["cls"],
+                            "box1": [round(x, 1) for x in b1["bbox"]],
+                            "box2": [round(x, 1) for x in b2["bbox"]],
+                            "pan_bbox": [round(x, 1) for x in s["bbox"]],
+                            "union_iou": round(u_iou, 3),
+                            "mask_in_boxes": round(coverage, 3),
+                            "area": s["area"],
+                        }
+                    )
+                    used_s.add(s_i)
+                    found_merge = True
+                    break
+
         # Bước 1: Ghép cặp 1-1 các (box, segment) cùng lớp khớp khít nhau
         clean_pairs: list[tuple[float, int, int]] = []
         for b_i, b in enumerate(boxes):
@@ -326,6 +383,23 @@ def find_candidates(
             if b_i not in matched_b and s_i not in matched_s:
                 matched_b.add(b_i)
                 matched_s.add(s_i)
+                s, b = segs[s_i], boxes[b_i]
+                if s_i not in used_s and s["area"] >= 350:
+                    frac = box_seg_pixels[b_i].get(s["rgb"], 0) / s["area"]
+                    if frac < 0.95:
+                        candidates.append(
+                            {
+                                "image": stem,
+                                "type": "bbox_drift",
+                                "class": s["cls"],
+                                "det_bbox": [round(x, 1) for x in b["bbox"]],
+                                "pan_bbox": [round(x, 1) for x in s["bbox"]],
+                                "iou": round(bbox_iou(b["bbox"], s["bbox"]), 3),
+                                "mask_in_box": round(frac, 3),
+                                "area": s["area"],
+                            }
+                        )
+                        used_s.add(s_i)
 
         unmatched_b = [b_i for b_i in range(len(boxes)) if b_i not in matched_b]
         unmatched_s = [
@@ -336,8 +410,6 @@ def find_candidates(
 
         if not unmatched_s:
             continue
-
-        used_s: set[int] = set()
 
         # A. Kiểm tra class_swap / category_swap: trùng vị trí nhưng khác tên lớp
         for b_i in unmatched_b:
@@ -369,48 +441,6 @@ def find_candidates(
                         }
                     )
                     used_s.add(s_i)
-
-        # B. Kiểm tra instance_merge: 1 segment panoptic phủ 2 box detection cùng lớp
-        for s_i in unmatched_s:
-            if s_i in used_s:
-                continue
-            s = segs[s_i]
-            cov_b: list[tuple[int, dict[str, Any], float, float]] = []
-            for b_i in unmatched_b:
-                b = boxes[b_i]
-                if b["cls"] != s["cls"]:
-                    continue
-                pix = box_seg_pixels[b_i].get(s["rgb"], 0)
-                share = pix / s["area"] if s["area"] > 0 else 0.0
-                fill = pix / b["area"] if b["area"] > 0 else 0.0
-                if share >= 0.04 and fill >= 0.10:
-                    cov_b.append((b_i, b, share, fill))
-            if len(cov_b) >= 2:
-                found_merge = False
-                for i in range(len(cov_b)):
-                    if found_merge:
-                        break
-                    for j in range(i + 1, len(cov_b)):
-                        _, b1, sh1, _ = cov_b[i]
-                        _, b2, sh2, _ = cov_b[j]
-                        ub = union_bbox(b1["bbox"], b2["bbox"])
-                        u_iou = bbox_iou(ub, s["bbox"])
-                        if u_iou >= 0.75 and (sh1 + sh2) >= 0.70:
-                            candidates.append(
-                                {
-                                    "image": stem,
-                                    "type": "instance_merge",
-                                    "class": s["cls"],
-                                    "box1": [round(x, 1) for x in b1["bbox"]],
-                                    "box2": [round(x, 1) for x in b2["bbox"]],
-                                    "pan_bbox": [round(x, 1) for x in s["bbox"]],
-                                    "union_iou": round(u_iou, 3),
-                                    "area": s["area"],
-                                }
-                            )
-                            used_s.add(s_i)
-                            found_merge = True
-                            break
 
         # C. Kiểm tra bbox_drift: box và segment cùng lớp nhưng lệch vị trí
         for s_i in unmatched_s:
