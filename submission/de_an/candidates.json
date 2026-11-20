@@ -1,0 +1,329 @@
+{
+  "candidates": [
+    {
+      "image": "img_0012",
+      "type": "instance_merge",
+      "class": "bus",
+      "box1": [
+        109.3,
+        63.6,
+        481.4,
+        443.3
+      ],
+      "box2": [
+        0.4,
+        79.8,
+        170.8,
+        409.9
+      ],
+      "pan_bbox": [
+        110.0,
+        64.0,
+        481.0,
+        443.0
+      ],
+      "union_iou": 0.77,
+      "mask_in_boxes": 1.0,
+      "area": 110898
+    },
+    {
+      "image": "img_0016",
+      "type": "instance_merge",
+      "class": "person",
+      "box1": [
+        47.3,
+        192.3,
+        151.0,
+        310.0
+      ],
+      "box2": [
+        25.9,
+        207.1,
+        62.3,
+        312.7
+      ],
+      "pan_bbox": [
+        50.0,
+        192.0,
+        150.0,
+        310.0
+      ],
+      "union_iou": 0.78,
+      "mask_in_boxes": 1.0,
+      "area": 6402
+    },
+    {
+      "image": "img_0017",
+      "type": "instance_merge",
+      "class": "person",
+      "box1": [
+        325.3,
+        144.9,
+        443.3,
+        421.2
+      ],
+      "box2": [
+        428.8,
+        193.5,
+        462.8,
+        315.8
+      ],
+      "pan_bbox": [
+        325.0,
+        145.0,
+        443.0,
+        421.0
+      ],
+      "union_iou": 0.853,
+      "mask_in_boxes": 1.0,
+      "area": 17233
+    },
+    {
+      "image": "img_0028",
+      "type": "class_swap_or_category_swap",
+      "det_class": "bicycle",
+      "pan_class": "motorcycle",
+      "det_bbox": [
+        0.0,
+        2.1,
+        334.6,
+        418.9
+      ],
+      "pan_bbox": [
+        0.0,
+        2.0,
+        334.0,
+        418.0
+      ],
+      "iou": 0.996,
+      "mask_in_box": 1.0,
+      "area": 76437
+    },
+    {
+      "image": "img_0036",
+      "type": "missing_box",
+      "class": "person",
+      "pan_bbox": [
+        102.0,
+        141.0,
+        237.0,
+        480.0
+      ],
+      "area": 10894
+    },
+    {
+      "image": "img_0045",
+      "type": "bbox_drift",
+      "class": "keyboard",
+      "det_bbox": [
+        294.0,
+        147.3,
+        390.6,
+        204.3
+      ],
+      "pan_bbox": [
+        277.0,
+        142.0,
+        386.0,
+        207.0
+      ],
+      "iou": 0.714,
+      "mask_in_box": 0.939,
+      "area": 3524
+    },
+    {
+      "image": "img_0061",
+      "type": "class_swap_or_category_swap",
+      "det_class": "cake",
+      "pan_class": "donut",
+      "det_bbox": [
+        536.2,
+        95.4,
+        640.0,
+        216.7
+      ],
+      "pan_bbox": [
+        536.0,
+        95.0,
+        640.0,
+        217.0
+      ],
+      "iou": 0.992,
+      "mask_in_box": 1.0,
+      "area": 8742
+    },
+    {
+      "image": "img_0079",
+      "type": "missing_box",
+      "class": "cat",
+      "pan_bbox": [
+        161.0,
+        156.0,
+        536.0,
+        375.0
+      ],
+      "area": 38450
+    },
+    {
+      "image": "img_0104",
+      "type": "missing_box",
+      "class": "book",
+      "pan_bbox": [
+        233.0,
+        172.0,
+        324.0,
+        211.0
+      ],
+      "area": 634
+    },
+    {
+      "image": "img_0117",
+      "type": "bbox_drift",
+      "class": "elephant",
+      "det_bbox": [
+        196.0,
+        51.8,
+        343.1,
+        229.6
+      ],
+      "pan_bbox": [
+        245.0,
+        75.0,
+        365.0,
+        220.0
+      ],
+      "iou": 0.485,
+      "mask_in_box": 0.93,
+      "area": 10308
+    },
+    {
+      "image": "img_0131",
+      "type": "missing_box",
+      "class": "motorcycle",
+      "pan_bbox": [
+        471.0,
+        157.0,
+        585.0,
+        317.0
+      ],
+      "area": 3530
+    },
+    {
+      "image": "img_0171",
+      "type": "instance_merge",
+      "class": "backpack",
+      "box1": [
+        59.1,
+        187.3,
+        84.4,
+        231.3
+      ],
+      "box2": [
+        135.5,
+        281.9,
+        168.4,
+        313.1
+      ],
+      "pan_bbox": [
+        59.0,
+        187.0,
+        168.0,
+        313.0
+      ],
+      "union_iou": 0.993,
+      "mask_in_boxes": 1.0,
+      "area": 1624
+    },
+    {
+      "image": "img_0178",
+      "type": "bbox_drift",
+      "class": "car",
+      "det_bbox": [
+        494.8,
+        145.8,
+        620.1,
+        208.9
+      ],
+      "pan_bbox": [
+        482.0,
+        142.0,
+        597.0,
+        200.0
+      ],
+      "iou": 0.613,
+      "mask_in_box": 0.869,
+      "area": 3859
+    },
+    {
+      "image": "img_0185",
+      "type": "instance_merge",
+      "class": "person",
+      "box1": [
+        381.7,
+        71.4,
+        549.6,
+        234.5
+      ],
+      "box2": [
+        336.8,
+        94.4,
+        415.7,
+        226.5
+      ],
+      "pan_bbox": [
+        382.0,
+        72.0,
+        548.0,
+        234.0
+      ],
+      "union_iou": 0.775,
+      "mask_in_boxes": 1.0,
+      "area": 16334
+    },
+    {
+      "image": "img_0199",
+      "type": "missing_box",
+      "class": "person",
+      "pan_bbox": [
+        439.0,
+        206.0,
+        522.0,
+        382.0
+      ],
+      "area": 2986
+    },
+    {
+      "image": "img_0238",
+      "type": "class_swap_or_category_swap",
+      "det_class": "bench",
+      "pan_class": "chair",
+      "det_bbox": [
+        47.6,
+        69.4,
+        92.7,
+        123.4
+      ],
+      "pan_bbox": [
+        48.0,
+        69.0,
+        93.0,
+        123.0
+      ],
+      "iou": 0.972,
+      "mask_in_box": 1.0,
+      "area": 832
+    },
+    {
+      "image": "img_0245",
+      "type": "missing_box",
+      "class": "toilet",
+      "pan_bbox": [
+        378.0,
+        219.0,
+        548.0,
+        480.0
+      ],
+      "area": 30816
+    }
+  ]
+}

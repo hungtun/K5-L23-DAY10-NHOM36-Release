@@ -1,0 +1,52 @@
+{
+  "errors": [
+    {
+      "type": "guideline_mismatch",
+      "target": "img_0019"
+    },
+    {
+      "type": "guideline_mismatch",
+      "target": "img_0069"
+    },
+    {
+      "type": "scene_leak",
+      "target": "scene_857"
+    },
+    {
+      "type": "duplicate_box",
+      "target": "img_0023"
+    },
+    {
+      "type": "bbox_out_of_bounds",
+      "target": "img_0060"
+    },
+    {
+      "type": "invalid_class",
+      "target": "img_0063"
+    },
+    {
+      "type": "missing_image",
+      "target": "img_0093"
+    },
+    {
+      "type": "wrong_hash",
+      "target": "img_0106"
+    },
+    {
+      "type": "bbox_out_of_bounds",
+      "target": "img_0119"
+    },
+    {
+      "type": "wrong_hash",
+      "target": "img_0151"
+    },
+    {
+      "type": "duplicate_box",
+      "target": "img_0165"
+    },
+    {
+      "type": "thing_overlap",
+      "target": "img_0034"
+    }
+  ]
+}
