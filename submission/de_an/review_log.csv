@@ -1,0 +1,18 @@
+image,type,verdict,note
+img_0012,instance_merge,rejected,"Hai xe bus đỗ cạnh nhau trong bãi, panoptic chỉ gán đúng xe ở giữa, không phải lỗi gộp instance."
+img_0016,instance_merge,rejected,"Các cầu thủ ngồi sát nhau trong khu vực kỹ thuật, phân tách box tự nhiên không bị gộp segment."
+img_0017,instance_merge,rejected,"Hai người đứng che khuất một phần trong phòng tiệc, segment chỉ bao người phía trước, không gộp."
+img_0028,class_swap,confirmed,Xe máy có động cơ và đèn pha lớn bị gán nhầm thành xe đạp trong nhãn detection (class_swap).
+img_0036,missing_box,confirmed,Người mặc áo tối màu đứng phía sau người áo trắng hoàn toàn bị bỏ sót box detection (missing_box).
+img_0045,bbox_drift,confirmed,Bàn phím máy tính trên bàn làm việc bị box detection lệch sang phải làm mất một phần bên trái.
+img_0061,category_swap,confirmed,Miếng bánh ngọt trên đĩa nhỏ ở góc trên bên phải bị panoptic gán nhầm thành donut (category_swap).
+img_0079,missing_box,confirmed,Con mèo vằn lớn đứng trên nắp bồn cầu trong phòng tắm hoàn toàn bị bỏ sót box trong detection.
+img_0104,missing_box,rejected,"Nhiều cuốn sách xếp chồng lộn xộn trong vali, lệch tự nhiên do che khuất dày đặc trong cụm sách."
+img_0117,bbox_drift,confirmed,Con voi đứng giữa đồng cỏ bị box detection lệch mạnh sang trái bao trùm bụi cây rỗng (bbox_drift).
+img_0131,missing_box,rejected,"Bãi đỗ xe máy ngoài trời rất đông đúc, các xe xếp san sát nhau gây lệch tự nhiên giữa box và mask."
+img_0171,instance_merge,confirmed,Balo trên lưng người và chiếc túi đặt trên bậc cửa bị panoptic gộp chung thành một vật (instance_merge).
+img_0178,bbox_drift,rejected,"Xe ô tô màu bạc đỗ phía sau bị xe tải trắng đi ngang qua che khuất một phần, là hiện tượng tự nhiên."
+img_0185,instance_merge,rejected,"Đám đông nhiều người đứng trò chuyện phía sau bàn tiệc sinh nhật, che khuất nhau tự nhiên."
+img_0199,missing_box,rejected,"Hai vận động viên áo trắng đứng che nhau ở hậu cảnh sân bóng, lệch tự nhiên do góc nhìn thể thao."
+img_0238,class_swap,confirmed,Chiếc ghế tựa đơn bằng gỗ bị nhãn detection gán nhầm thành ghế dài băng ghế bench (class_swap).
+img_0245,missing_box,confirmed,Chiếc bồn cầu sứ màu trắng trong phòng tắm cạnh vòi sen bị bỏ sót hoàn toàn box trong detection.

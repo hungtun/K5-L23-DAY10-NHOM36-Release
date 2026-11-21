@@ -47,6 +47,42 @@
     {
       "type": "thing_overlap",
       "target": "img_0034"
+    },
+    {
+      "type": "class_swap",
+      "target": "img_0028"
+    },
+    {
+      "type": "missing_box",
+      "target": "img_0036"
+    },
+    {
+      "type": "bbox_drift",
+      "target": "img_0045"
+    },
+    {
+      "type": "category_swap",
+      "target": "img_0061"
+    },
+    {
+      "type": "missing_box",
+      "target": "img_0079"
+    },
+    {
+      "type": "bbox_drift",
+      "target": "img_0117"
+    },
+    {
+      "type": "instance_merge",
+      "target": "img_0171"
+    },
+    {
+      "type": "class_swap",
+      "target": "img_0238"
+    },
+    {
+      "type": "missing_box",
+      "target": "img_0245"
     }
   ]
 }
